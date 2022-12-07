@@ -74,7 +74,8 @@ bot.onText(/^[^\/]/, async message => {
   try {
     var conversationResponse = await requestGpt('backend-api/conversation', {
       method: 'POST',
-      // Time out equals the maximum duration of the "typing" action.
+      // If it takes longer than a few seconds before the user gets *any*
+      // feedback, the UX starts to really suffer.
       timeout: 5000,
       headers: {
         Authorization: 'Bearer ' + accessToken,
@@ -100,6 +101,10 @@ bot.onText(/^[^\/]/, async message => {
   }
 
   if (conversationResponse.status === 200) {
+    // As soon as we know that we are going to be able to provide an answer,
+    // manage the user's expectations. We deliberately have not sent this action
+    // before because it can only be sent once consecutively and has a maximum
+    // duration of five seconds.
     await bot.sendChatAction(message.chat.id, 'typing');
     for await (let { data } of parseEventStream(conversationResponse.body)) {
       if (data === "[DONE]")
