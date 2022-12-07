@@ -1,0 +1,15 @@
+{
+  "name": "tims-chatgpt-bot",
+  "version": "0.1.0",
+  "description": "ChatGPT in your Telegram",
+  "type": "module",
+  "bin": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ʈim anton willem <npm@timmolendijk.nl>",
+  "license": "ISC",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.60.0"
+  }
+}
