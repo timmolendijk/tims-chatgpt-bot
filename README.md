@@ -12,4 +12,5 @@
 
 ## Run
 
-Launch the bot back-end via `tims-chatgpt-bot (<ChatGPT session token>)`. You can authenticate with ChatGPT directly by providing a valid session token (taken from cookies after [signing in at ChatGPT](https://chat.openai.com/chat)).
+- Launch the bot back-end via `tims-chatgpt-bot (<ChatGPT session token>)`. You can authenticate with ChatGPT directly by providing a valid session token (taken from cookies after [signing in at ChatGPT](https://chat.openai.com/chat)).
+- Unless already done in the previous step, open Telegram and authenticate your bot by sending it a `/auth <ChatGPT session token>` command.
